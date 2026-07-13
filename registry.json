@@ -1,0 +1,55 @@
+{
+  "registryVersion": 1,
+  "plugins": [
+    {
+      "id": "moldavite-example",
+      "name": "Example Plugin",
+      "version": "1.1.0",
+      "description": "Insert a timestamp and show the current note's word count.",
+      "author": "Moldavite",
+      "apiVersion": 1,
+      "permissions": [
+        "commands",
+        "editor",
+        "ui"
+      ],
+      "allowedHosts": [],
+      "files": {
+        "manifest.json": {
+          "sha256": "3e27644b784bb84559fd9fcf0d54c0df3fb35b8434bbd8cf9dc9191a41084c78"
+        },
+        "plugin.js": {
+          "sha256": "1f79b443687dbd18ff391184403fb54d47aa4bdf62cdcf45d66c10ea2941fedf"
+        }
+      },
+      "path": "plugins/moldavite-example"
+    },
+    {
+      "id": "moldavite-wordpress",
+      "name": "Publish to WordPress",
+      "version": "1.0.0",
+      "description": "Publish the active note as a WordPress draft, with safe updates on re-publish. WordPress.com Simple sites require OAuth and are not supported.",
+      "author": "Moldavite",
+      "apiVersion": 2,
+      "permissions": [
+        "editor",
+        "ui",
+        "notes.read",
+        "net.fetch",
+        "secrets"
+      ],
+      "allowedHosts": [
+        "public-api.wordpress.com"
+      ],
+      "files": {
+        "manifest.json": {
+          "sha256": "1a1fba847fb5cdddd33705af024ad8e28e91099b84bdd6949c66f04a7fd470a5"
+        },
+        "plugin.js": {
+          "sha256": "1db182657f560d42c0b3325047e34385cc2b5f43e35b2f5143c2e06fc3c261ab"
+        }
+      },
+      "path": "plugins/moldavite-wordpress"
+    }
+  ]
+}
