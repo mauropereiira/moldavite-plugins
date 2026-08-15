@@ -1,6 +1,16 @@
-# Moldavite Community Plugins
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/banner-dark.png">
+  <img src=".github/banner-light.png" alt="Moldavite — community plugins" width="100%">
+</picture>
 
-The community plugin registry for [Moldavite](https://mauropereiira.github.io/Moldavite/) — a privacy-first, local-first Markdown note app for macOS.
+<p align="center">
+  <em>The community plugin registry.</em>
+</p>
+
+---
+
+Plugins for [Moldavite](https://mauropereiira.github.io/Moldavite/), a
+privacy-first, local-first Markdown notes app for macOS and Windows.
 
 Moldavite reads `registry.json` from this repository (only when you open **Settings → Plugins → Browse community plugins** — never in the background) and installs plugins from the `plugins/` folder after showing you their permissions and verifying file hashes.
 
