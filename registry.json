@@ -8,6 +8,7 @@
       "description": "Insert a timestamp and show the current note's word count.",
       "author": "Moldavite",
       "apiVersion": 1,
+      "minAppVersion": "1.5.0",
       "permissions": [
         "commands",
         "editor",
@@ -27,13 +28,15 @@
     {
       "id": "moldavite-wordpress",
       "name": "Publish to WordPress",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Publish the active note as a WordPress draft, with safe updates on re-publish. WordPress.com Simple sites require OAuth and are not supported.",
       "author": "Moldavite",
       "apiVersion": 2,
+      "minAppVersion": "1.6.0",
       "permissions": [
         "editor",
         "ui",
+        "commands",
         "notes.read",
         "net.fetch",
         "secrets"
@@ -43,7 +46,7 @@
       ],
       "files": {
         "manifest.json": {
-          "sha256": "1a1fba847fb5cdddd33705af024ad8e28e91099b84bdd6949c66f04a7fd470a5"
+          "sha256": "775f424e4d71aa03f7e8d0a97f58895656c48c244556f5633c546cef53baaaec"
         },
         "plugin.js": {
           "sha256": "1db182657f560d42c0b3325047e34385cc2b5f43e35b2f5143c2e06fc3c261ab"
