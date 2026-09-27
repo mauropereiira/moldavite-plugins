@@ -1,0 +1,42 @@
+name: Validate plugins
+
+# Runs the pull request's own code, plugins included, so it gets a read-only
+# token and no secrets. registry-check.yml is the check a pull request cannot edit.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: Check the registry and the plugin files
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            node scripts/validate.mjs --base "origin/$BASE_REF"
+          else
+            node scripts/validate.mjs
+          fi
+      - name: Load every plugin in the sandbox harness
+        run: node scripts/smoke.mjs
+      - name: Test the tooling
+        run: npm test

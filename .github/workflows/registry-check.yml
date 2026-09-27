@@ -1,0 +1,41 @@
+name: Registry check
+
+# pull_request_target runs this file and the validator from main, so a pull
+# request cannot rewrite the check it is judged by. It reads the pull request's
+# files as data and runs none of them: no install step, no plugin code, no
+# scripts from the pull request. The token is read-only and there are no secrets.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: registry-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  registry:
+    name: registry (rules from main)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the validator from main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+      - name: Check out the pull request as data
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: Validate the pull request with main's rules
+        run: node base/scripts/validate.mjs --root pr --compare base

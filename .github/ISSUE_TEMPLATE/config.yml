@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem privately
+    url: https://github.com/mauropereiira/moldavite-plugins/security/advisories/new
+    about: For a vulnerability or a malicious plugin that should not be discussed in public yet.
+  - name: Moldavite app issues
+    url: https://github.com/mauropereiira/Moldavite/issues
+    about: Problems with Moldavite itself rather than a listed plugin.

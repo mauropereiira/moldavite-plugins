@@ -1,0 +1,40 @@
+name: Report a plugin
+description: A listed plugin is broken, misleading, or doing something it should not.
+title: "Report: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for looking out for other Moldavite users. If the problem is a security issue that others could exploit, report it privately instead: see SECURITY.md.
+        To stop a plugin right away: **Settings → Plugins**, turn it off or uninstall it. If Moldavite will not open, see "If a plugin stops Moldavite from working" in the plugin guide.
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin id
+      description: The folder name under plugins/, for example moldavite-example.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - It does not work
+        - It does something its description or permissions do not say
+        - It sends data somewhere unexpected
+        - Offensive or inappropriate content
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. Do not paste note contents, passwords or tokens.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Plugin version, Moldavite version, and your operating system.
