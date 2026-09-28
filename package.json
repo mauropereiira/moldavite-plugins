@@ -1,0 +1,17 @@
+{
+  "name": "moldavite-plugins",
+  "private": true,
+  "description": "The Moldavite community plugin directory and the checks every plugin passes before it is listed.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "check": "node scripts/validate.mjs && node scripts/smoke.mjs",
+    "registry": "node scripts/registry-entry.mjs",
+    "test": "node --test scripts/tests/*.test.mjs"
+  }
+}
