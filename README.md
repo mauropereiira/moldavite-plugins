@@ -33,7 +33,7 @@ Moldavite never checks for plugins on its own, at startup or in the background. 
 `registry.json` from this repository's main branch only when you do one of these:
 
 - **Settings → Plugins → Browse community plugins**, inside Moldavite.
-- Click an **Install in Moldavite** link on the [website directory](https://mauropereiira.github.io/Moldavite/plugins.html#directory), shaped `moldavite://plugin/<id>`.
+- Click an **Install in Moldavite** link on the [website directory](https://moldavite.dev/plugins.html#directory), shaped `moldavite://plugin/<id>`.
 - **Install from .zip…** or **Install from folder…**, for a plugin someone made or downloaded outside this directory. Moldavite has not reviewed this code: the confirmation warns you and shows the SHA-256 of `plugin.js`, so you can check it against what the author published.
 
 Every route stops at a confirmation that names the plugin, what it can do, and every host it
