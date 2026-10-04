@@ -2,7 +2,8 @@
 
 ## Reporting a vulnerability
 
-Report privately through [GitHub Security Advisories](https://github.com/mauropereiira/moldavite-plugins/security/advisories/new).
+Report privately through [GitHub Security Advisories](https://github.com/mauropereiira/moldavite-plugins/security/advisories/new),
+or email [support@moldavite.dev](mailto:support@moldavite.dev) if you cannot use GitHub.
 Use this for anything that should not be discussed in public yet: a listed plugin doing
 something malicious or deceptive, a way to get a plugin listed without real review, or a bug
 in this repository's own checks that lets something unsafe through.
